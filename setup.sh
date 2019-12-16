@@ -59,6 +59,8 @@ find . -type f -exec sed -i -e "s/:namespace/$(echo "$namespace" | sed -e 's/[]\
 mv tests/ElliotJReed tests/"$namespace"
 mv src/ElliotJReed src/"$namespace"
 
+sed -i -e '3,10d' README.md
+
 echo "Replaced all values and removed git directory. This script is self-destructing."
 
 rm -- "$0"
