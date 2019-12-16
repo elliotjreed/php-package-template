@@ -1,12 +1,14 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md) [![Build Status](https://travis-ci.org/elliotjreed/:package_name.svg?branch=master)](https://travis-ci.org/elliotjreed/:package_name) [![Coverage Status](https://coveralls.io/repos/github/elliotjreed/:package_name/badge.svg?branch=master)](https://coveralls.io/github/elliotjreed/:package_name?branch=master)
 
-# PHP
-
-**This is a template. To use it, clone this repository or select "Use this template" from [GitHub.com/elliotjreed/php-package-template](https://github.com/elliotjreed/php-package-template) and run:**
+**This is a template. To use it, clone this repository or select "Use this template" from [github.com/elliotjreed/php-package-template](https://github.com/elliotjreed/php-package-template) and run:**
 
 ```bash
 bash ./setup.sh
 ```
+
+**The following instructions and information are related to the project after the [setup](setup.sh) script has been run (they will throw errors if run before the [setup](setup.sh) has been run).**
+
+# :package_name
 
 ## Getting Started
 
@@ -32,9 +34,13 @@ php composer.phar install
 
 This will install all dependencies needed for the project.
 
+Henceforth, the rest of this README will assume `composer` is installed globally (ie. if you are using `composer.phar` you will need to use `composer.phar` instead of `composer` in your terminal / command-line).
+
 ## Running the Tests
 
 ### Unit tests
+
+Unit testing in this project is via [PHPUnit](https://phpunit.de/).
 
 All unit tests can be run by executing:
 
@@ -52,9 +58,11 @@ composer phpunit:debug
 
 ### Static analysis
 
+Static analysis tools can point to potential "weak spots" in your code, and can be useful in identifying unexpected side-effects.
+
 [Phan](https://github.com/phan/phan) and [Psalm](https://psalm.dev/) are configured at their highest levels, meaning false positives are quite likely.
 
-All static analysis can be run by executing:
+All static analysis tests can be run by executing:
 
 ```bash
 composer static-analysis
@@ -62,11 +70,17 @@ composer static-analysis
 
 ### Mutation testing
 
+Mutation testing provides an indication as to how "robust" your unit tests are by changing small bits of code (eg. `$x > 1` could be changed to `$x >= 1`) and seeing if your tests still pass - if they do, your tests are likely a bit flaky.
+
 Mutation testing (via [Infection](https://infection.github.io/)) can be run by executing:
 
 ```bash
 composer mutation
 ```
+
+## Code formatting
+
+A standard for code style can be important when working in teams, as it means that less time is spent by developers processing what they are reading (as everything will be consistent).
 
 Code format checking (via [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer)) can be run by executing:
 
