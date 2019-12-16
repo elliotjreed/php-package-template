@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Example;
+namespace Tests\:namespace;
 
 use PHPUnit\Framework\TestCase;
-use ElliotJReed\Greeting;
+use :namespace\Greeting;
 
 final class GreetingTest extends TestCase
 {

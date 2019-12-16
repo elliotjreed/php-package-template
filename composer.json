@@ -1,29 +1,29 @@
 {
-  "name": "elliotjreed/:package_name",
+  "name": ":username/:package_name",
   "description": ":package_description",
   "keywords": [
-    "elliotjreed",
+    ":username",
     ":package_name"
   ],
   "license": "MIT",
   "type": "project",
   "authors": [
     {
-      "name": "Elliot J. Reed",
-      "email": "git-contact@elliotjreed.com",
-      "homepage": "https://www.elliotjreed.com",
+      "name": ":author_name",
+      "email": ":author_email",
+      "homepage": ":author_website",
       "role": "Developer"
     }
   ],
-  "homepage": "https://github.com/elliotjreed/:package_name",
+  "homepage": "https://github.com/:username/:package_name",
   "autoload": {
     "psr-4": {
-      "ElliotJReed\\": "src/ElliotJReed/"
+      ":namespace\\": "src/:namespace/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\ElliotJReed\\": "tests/ElliotJReed/"
+      "Tests\\:namespace\\": "tests/:namespace/"
     }
   },
   "require": {
@@ -31,7 +31,7 @@
   },
   "require-dev": {
     "php-ast": "*",
-    "infection/infection": "^0.15.0",
+    "infection/infection": "^0",
     "phan/phan": "^2",
     "php-coveralls/php-coveralls": "^2",
     "phpunit/phpunit": "^8",
@@ -54,6 +54,7 @@
     "test": [
       "@phpunit:coverage",
       "@static-analysis",
+      "@mutation",
       "@phpcs"
     ],
     "travis": [
