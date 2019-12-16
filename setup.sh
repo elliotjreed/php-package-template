@@ -12,7 +12,6 @@ echo
 echo "This script will replace the above values in all files in the project directory and reset the git repository."
 read -p "Are you sure you wish to continue? (n/y) " -n 1 -r
 
-echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
@@ -22,10 +21,6 @@ echo
 
 rm -rf .git
 sed -i '/composer.lock/d' .gitignore
-
-git init
-
-echo
 
 find . -type f -exec sed -i '' -e "s/:package_name/$package_name/" {} \;
 find . -type f -exec sed -i '' -e "s/:package_description/$package_description/" {} \;
