@@ -39,10 +39,15 @@ fi
 
 echo
 
-rm -rf .git
+# Only remove .git directory if the template repository was cloned, rather than used as a template via GitHub's "Use this template"
+if [[ $(basename "$(git rev-parse --show-toplevel)") = "php-package-template" ]]
+then
+    rm -rf .git
+fi
+
 sed -i '/composer.lock/d' .gitignore
 
-# If you're wondering what the `sed` replacement is here, it's just escaping characters for the regex. from the variables defined by `read` above
+# The `sed` replacements here are just escaping characters for the regex. from the variables defined by `read` above
 find . -type f -exec sed -i -e "s/:username/$(echo "$username" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
 find . -type f -exec sed -i -e "s/:author_name/$(echo "$author_name" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
 find . -type f -exec sed -i -e "s/:author_email/$(echo "$author_email" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
