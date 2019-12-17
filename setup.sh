@@ -67,4 +67,4 @@ rm -- "$0"
 
 echo "Installing dependencies"
 
-composer install
+composer install --ignore-platform-reqs
