@@ -45,21 +45,21 @@ then
     rm -rf .git
 fi
 
-sed -i '' '/composer.lock/d' .gitignore
+sed -i '' '/composer.lock/d' .gitignore &>/dev/null
 
 # The `sed` replacements here are just escaping characters for the regex. from the variables defined by `read` above
-find . -type f -exec sed -i '' -e "s/:username/$(echo "$username" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
-find . -type f -exec sed -i '' -e "s/:author_name/$(echo "$author_name" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
-find . -type f -exec sed -i '' -e "s/:author_email/$(echo "$author_email" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
-find . -type f -exec sed -i '' -e "s/:author_website/$(echo "$author_website" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
-find . -type f -exec sed -i '' -e "s/:package_name/$(echo "$package_name" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
-find . -type f -exec sed -i '' -e "s/:package_description/$(echo "$package_description" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
-find . -type f -exec sed -i '' -e "s/:namespace/$(echo "$namespace" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \;
+find . -type f -exec sed -i '' -e "s/:username/$(echo "$username" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
+find . -type f -exec sed -i '' -e "s/:author_name/$(echo "$author_name" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
+find . -type f -exec sed -i '' -e "s/:author_email/$(echo "$author_email" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
+find . -type f -exec sed -i '' -e "s/:author_website/$(echo "$author_website" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
+find . -type f -exec sed -i '' -e "s/:package_name/$(echo "$package_name" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
+find . -type f -exec sed -i '' -e "s/:package_description/$(echo "$package_description" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
+find . -type f -exec sed -i '' -e "s/:namespace/$(echo "$namespace" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
 
 mv tests/ElliotJReed tests/"$namespace"
 mv src/ElliotJReed src/"$namespace"
 
-sed -i '' -e '3,10d' README.md
+sed -i '' -e '3,10d' README.md &>/dev/null
 
 echo "Replaced all values and removed git directory. This script is self-destructing."
 
