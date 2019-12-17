@@ -6,6 +6,8 @@
 bash ./setup.sh
 ```
 
+![Gif image demonstration of the setup process](demo.gif "Demonstration of the setup process")
+
 **The following instructions and information are related to the project after the [setup](setup.sh) script has been run (they will throw errors if run before the [setup](setup.sh) has been run).**
 
 # :package_name

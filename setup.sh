@@ -47,7 +47,7 @@ fi
 
 sed -i '' '/composer.lock/d' .gitignore &>/dev/null
 
-# The `sed` replacements here are just escaping characters for the regex. from the variables defined by `read` above
+# The `sed` replacements here are just escaping characters for the regex. from the variables defined by `read` above. I've redirected the warnings so as to not freak people out.
 find . -type f -exec sed -i '' -e "s/:username/$(echo "$username" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
 find . -type f -exec sed -i '' -e "s/:author_name/$(echo "$author_name" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
 find . -type f -exec sed -i '' -e "s/:author_email/$(echo "$author_email" | sed -e 's/[]\/$*.^[]/\\&/g')/g" {} \; &>/dev/null
@@ -59,10 +59,11 @@ find . -type f -exec sed -i '' -e "s/:namespace/$(echo "$namespace" | sed -e 's/
 mv tests/ElliotJReed tests/"$namespace"
 mv src/ElliotJReed src/"$namespace"
 
-sed -i '' -e '3,10d' README.md &>/dev/null
+sed -i '' -e '3,12d' README.md &>/dev/null
 
 echo "Replaced all values and removed git directory. This script is self-destructing."
 
+rm demo.gif
 rm -- "$0"
 
 echo "Installing dependencies"
