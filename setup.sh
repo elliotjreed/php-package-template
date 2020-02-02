@@ -12,7 +12,9 @@ author_name=${author_name:-$git_name}
 read -p "Author email ($git_email): " author_email
 author_email=${author_email:-$git_email}
 
-read -p "Author GitHub / Packagist username (elliotjreed): " username
+
+username_guess=${author_name//+([^[:alnum:][:blank:]])/_,,}
+read -p "Author GitHub / Packagist username ($username_guess): " username
 username=${username:-elliotjreed}
 
 read -p "Author website or profile (https://github.com/$username): " author_website
