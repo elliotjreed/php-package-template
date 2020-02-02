@@ -20,6 +20,9 @@ phpunit: vendor
 debug: vendor
 	composer run-script phpunit:debug
 
+md: vendor
+	composer run-script phpmd
+
 phpcs: vendor
 	composer run-script phpcs
 
