@@ -12,7 +12,7 @@ author_name=${author_name:-$git_name}
 read -p "Author email ($git_email): " author_email
 author_email=${author_email:-$git_email}
 
-username_guess=${author_name//+([^[:alnum:][:blank:]])/_,,}
+username_guess=$(echo $author_name | sed 's/[^a-zA-Z0-9-]//g' | tr '[:upper:]' '[:lower:]')
 read -p "Author GitHub / Packagist username ($username_guess): " username
 username=${username:-$username_guess}
 
@@ -69,4 +69,4 @@ rm -- "$0"
 
 echo "Installing dependencies"
 
-composer install --ignore-platform-reqs
+composer install --no-interaction --no-suggest --ignore-platform-reqs

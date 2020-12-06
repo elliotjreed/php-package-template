@@ -27,18 +27,18 @@
     }
   },
   "require": {
-    "php": "^7.4"
+    "php": "^7.4|^8.0"
   },
   "require-dev": {
     "ext-ast": "*",
-    "infection/infection": "^0.17",
+    "infection/infection": "^0.20",
     "phan/phan": "^3.2",
-    "php-coveralls/php-coveralls": "^2.2",
-    "phpmd/phpmd": "^2.8",
-    "phpunit/phpunit": "^9.3",
+    "php-coveralls/php-coveralls": "^2.4",
+    "phpmd/phpmd": "^2.9",
+    "phpunit/phpunit": "^9.5",
     "roave/security-advisories": "dev-master",
     "squizlabs/php_codesniffer": "^3.5",
-    "vimeo/psalm": "^3.12"
+    "vimeo/psalm": "^3.14"
   },
   "scripts": {
     "setup": [
