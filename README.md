@@ -134,16 +134,29 @@ All of the tests can be run by executing:
 make test
 ```
 
-### Running the tests on a Continuous Integration platform (eg. Travis)
+### Running the tests on a Continuous Integration platform (eg. Github Actions or Travis)
 
-To run all the tests and report code coverage in Clover XML format (which many CI platforms can read, including Travis CI), add the following to your CI config (eg. [.travis.yml](.travis.yml)):
+Specific output formats better suited to CI platforms are included as Composer scripts.
 
-```yaml
-  script:
-    - composer travis
-  after_success:
-    - travis_retry php vendor/bin/php-coveralls
+To output unit test coverage in text and Clover XML format:
+
 ```
+composer phpunit:ci
+```
+
+To output PHPCS results in checkstyle format:
+
+```
+composer phpcs:ci
+```
+
+#### Github Actions
+
+Look at the example in [.github/workflows/main.yml](.github/workflows/main.yml).
+
+#### Travis
+
+Look at the example in [.travis.yml](.travis.yml).
 
 ## Coding standards
 
