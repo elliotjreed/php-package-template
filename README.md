@@ -1,4 +1,4 @@
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md) [![Build Status](https://travis-ci.org/elliotjreed/:package_name.svg?branch=master)](https://travis-ci.org/elliotjreed/:package_name) [![Coverage Status](https://coveralls.io/repos/github/elliotjreed/:package_name/badge.svg?branch=master)](https://coveralls.io/github/elliotjreed/:package_name?branch=master)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md)
 
 **This is a template. To use it, clone this repository or select "Use this template" from [github.com/elliotjreed/php-package-template](https://github.com/elliotjreed/php-package-template) and run:**
 
@@ -94,7 +94,11 @@ composer phpmd
 
 A standard for code style can be important when working in teams, as it means that less time is spent by developers processing what they are reading (as everything will be consistent).
 
-Code format checking (via [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer)) can be run by executing:
+Code formatting is automated via [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).
+PHP-CS-Fixer will not format line lengths which do form part of the PSR-2 coding standards so these will product warnings when checked by [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+
+These can be run by executing:
+
 
 ```bash
 composer phpcs
@@ -138,13 +142,13 @@ make test
 
 Specific output formats better suited to CI platforms are included as Composer scripts.
 
-To output unit test coverage in text and Clover XML format:
+To output unit test coverage in text and Clover XML format (which can be used for services such as [Coveralls](https://coveralls.io/)):
 
 ```
 composer phpunit:ci
 ```
 
-To output PHPCS results in checkstyle format:
+To output PHP-CS-Fixer (dry run) and PHPCS results in checkstyle format (which GitHub Actions will use to output a rewadable format):
 
 ```
 composer phpcs:ci
@@ -157,24 +161,6 @@ Look at the example in [.github/workflows/main.yml](.github/workflows/main.yml).
 #### Travis
 
 Look at the example in [.travis.yml](.travis.yml).
-
-## Coding standards
-
-PHP coding standards are quite strict and are defined in [ruleset.xml](ruleset.xml).
-
-The rules are PSR-2 and PSR-12 standards with additionally defined rules.
-
-The code formatting checks can be run by executing:
-
-```bash
-composer phpcs
-```
-
-To automatically fix any issues where possible, run:
-
-```bash
-composer phpcs:fix
-```
 
 ## Built With
 
