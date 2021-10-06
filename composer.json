@@ -31,32 +31,23 @@
   },
   "require-dev": {
     "ext-ast": "*",
-    "friendsofphp/php-cs-fixer": "^3.0",
-    "infection/infection": "^0.23",
-    "phan/phan": "^4.0",
+    "friendsofphp/php-cs-fixer": "^3.2",
     "php-coveralls/php-coveralls": "^2.4",
-    "phpmd/phpmd": "^2.10",
     "phpunit/phpunit": "^9.5",
     "roave/security-advisories": "dev-master",
     "squizlabs/php_codesniffer": "^3.6",
-    "vimeo/psalm": "^4.8"
+    "vimeo/psalm": "^4.10"
   },
   "scripts": {
     "setup": [
-      "@phan:init",
       "@psalm:init"
     ],
     "static-analysis": [
-      "@phan",
       "@psalm"
-    ],
-    "mutation": [
-      "@infection"
     ],
     "test": [
       "@phpunit:coverage",
       "@static-analysis",
-      "@mutation",
       "@phpcs"
     ],
     "phpunit": "vendor/bin/phpunit -c phpunit.xml",
@@ -64,13 +55,9 @@
     "phpunit:coverage": "vendor/bin/phpunit -c phpunit.xml --coverage-html ./coverage --coverage-text",
     "phpunit:ci": "mkdir -p ./build/logs && vendor/bin/simple-phpunit -c phpunit.xml --coverage-text=coverage.txt --coverage-clover ./build/logs/clover.xml",
     "phpcs": "vendor/bin/php-cs-fixer fix --allow-risky=yes && vendor/bin/phpcs --standard=phpcs.xml",
-    "phpcs:ci": "vendor/bin/phpcs --standard=phpcs.xml --report=checkstyle --runtime-set ignore_warnings_on_exit true | cs2pr --graceful-warning && vendor/bin/php-cs-fixer fix --dry-run --allow-risky=yes --using-cache=no --format=checkstyle | cs2pr --graceful-warning",
-    "phan": "PHAN_DISABLE_XDEBUG_WARN=1 vendor/bin/phan",
-    "phan:init": "vendor/bin/phan --init --init-level=1",
+    "phpcs:ci": "vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run && vendor/bin/phpcs --standard=phpcs.xml",
     "psalm": "vendor/bin/psalm",
-    "psalm:init": "vendor/bin/psalm --init src 1",
-    "infection": "vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=100",
-    "phpmd" : "./vendor/bin/phpmd src,tests ansi cleancode,codesize,controversial,design,naming,unusedcode"
+    "psalm:init": "vendor/bin/psalm --init src 1"
   },
   "config": {
     "optimize-autoloader": true,
