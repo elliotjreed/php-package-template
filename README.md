@@ -117,7 +117,7 @@ All of the tests can be run by executing:
 make test
 ```
 
-### Running the tests on a Continuous Integration platform (eg. Github Actions or Travis)
+### Running the tests on a Continuous Integration platform (eg. Github Actions)
 
 Specific output formats better suited to CI platforms are included as Composer scripts.
 
@@ -136,10 +136,6 @@ composer phpcs:ci
 #### Github Actions
 
 Look at the example in [.github/workflows/main.yml](.github/workflows/main.yml).
-
-#### Travis
-
-Look at the example in [.travis.yml](.travis.yml).
 
 ## Built With
 
