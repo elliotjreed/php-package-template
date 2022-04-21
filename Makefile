@@ -6,7 +6,7 @@ vendor: composer.json composer.lock
 
 .PHONY: test phpcs static-analysis phpunit composer-validate composer-outdated
 
-test: phpcs static-analysis phpunit mutation composer-validate composer-outdated
+test: phpunit phpcs static-analysis mutation composer-validate composer-outdated
 
 static-analysis: vendor
 	composer run-script static-analysis
