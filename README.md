@@ -58,18 +58,6 @@ To have PHPUnit stop and report on the first failing test encountered, run:
 composer phpunit:debug
 ```
 
-### Static analysis
-
-Static analysis tools can point to potential "weak spots" in your code, and can be useful in identifying unexpected side-effects.
-
-[Psalm](https://psalm.dev/) is configured at its highest levels, meaning false positives are quite likely.
-
-Static analysis tests can be run by executing:
-
-```bash
-composer static-analysis
-```
-
 ## Code formatting
 
 A standard for code style can be important when working in teams, as it means that less time is spent by developers processing what they are reading (as everything will be consistent).
@@ -142,7 +130,6 @@ Look at the example in [.github/workflows/main.yml](.github/workflows/main.yml).
   - [PHP](https://secure.php.net/)
   - [Composer](https://getcomposer.org/)
   - [PHPUnit](https://phpunit.de/)
-  - [Psalm](https://psalm.dev/)
   - [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer)
   - [GNU Make](https://www.gnu.org/software/make/)
 
