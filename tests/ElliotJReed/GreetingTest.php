@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\:namespace;
 
-use PHPUnit\Framework\TestCase;
 use :namespace\Greeting;
+use PHPUnit\Framework\TestCase;
 
 final class GreetingTest extends TestCase
 {
