@@ -1,10 +1,12 @@
-composer.phar
+
+ser.phar
 /vendor
 /.idea
 /node_modules
+phpdocumentor/
 .phpunit.result.cache
-.phpunit.cache/
 .php-cs-fixer.cache
+.phpunit.cache/
 /coverage
 infection.log
 composer.lock
@@ -15,3 +17,4 @@ yarn-error.log
 /.env.local
 /.env.local.php
 /.env.*.local
+
