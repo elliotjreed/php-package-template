@@ -18,7 +18,6 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           coverage: xdebug
-          tools: cs2pr
 
       - name: Get composer cache directory
         id: composer-cache
