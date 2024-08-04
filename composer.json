@@ -23,7 +23,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\:namespace\\": "tests/:namespace/"
+      ":namespace\\Tests\\": "tests/:namespace/"
     }
   },
   "require": {

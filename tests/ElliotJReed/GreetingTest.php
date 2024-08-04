@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\:namespace;
+namespace :namespace\Tests;
 
 use :namespace\Greeting;
 use PHPUnit\Framework\TestCase;
