@@ -14,7 +14,7 @@ bash ./setup.sh
 
 ## Getting Started
 
-PHP 8.1 or above and Composer is expected to be installed.
+PHP 8.2 or above and Composer is expected to be installed.
 
 ### Installing Composer
 
