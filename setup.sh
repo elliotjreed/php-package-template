@@ -69,4 +69,4 @@ rm -- "$0"
 
 echo "Installing dependencies"
 
-composer install --no-interaction --no-suggest --ignore-platform-reqs
+composer install --no-interaction --ignore-platform-reqs
