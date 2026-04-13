@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
-    ->in([__DIR__ . '/src', __DIR__ . '/tests']);
+    ->in(__DIR__)
+    ->exclude('vendor');
 
 return (new PhpCsFixer\Config())
     ->setRules([
@@ -20,6 +21,6 @@ return (new PhpCsFixer\Config())
         'native_function_invocation' => [
             'include' => ['@all'],
             'scope' => 'all'
-        ],
+        ]
     ])
     ->setFinder($finder);
